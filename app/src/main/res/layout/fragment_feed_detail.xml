@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="feedDetailViewModel"
+            type="com.rounak.testapp.ui.feed_detail.FeedDetailViewModel" />
+
+        <variable
+            name="feedItem"
+            type="com.rounak.testapp.data.network.responses.feeds_response.FeedItem" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/feedsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.rounak.testapp.ui.feed_detail.FeedDetailFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/back_icon"
+                app:title="@string/feed_detail_title" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:id="@+id/feedDetailContainer"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/feedImgContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintWidth_max="600dp"
+                    app:layout_constraintDimensionRatio="16:9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <ImageView
+                        android:id="@+id/feedImg"
+                        app:image="@{feedItem.url}"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/feed_image" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <ImageView
+                    android:id="@+id/heartImgView"
+                    android:src="@drawable/ic_favourite"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:layout_constraintTop_toBottomOf="@+id/feedImgContainer"
+                    app:layout_constraintEnd_toEndOf="@+id/feedImgContainer"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="2dp"
+                    android:contentDescription="@string/favourite_or_unfavourite_image" />
+
+                <TextView
+                    android:id="@+id/feedTitle"
+                    android:layout_marginTop="80dp"
+                    android:padding="10dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@{feedItem.title}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/heartImgView"
+                    app:layout_constraintStart_toStartOf="@+id/feedImgContainer"
+                    app:layout_constraintEnd_toEndOf="@+id/feedImgContainer"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

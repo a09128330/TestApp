@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TestApp</string>
+    <string name="email_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login">Login</string>
+    <string name="remember">Remember me</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_title">Feeds</string>
+    <string name="feed_image">Feed Image</string>
+    <string name="feed_detail_title">Feed Detail</string>
+    <string name="favourite_or_unfavourite_image">favourite or unfavourite image</string>
+</resources>
